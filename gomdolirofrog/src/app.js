@@ -1,11 +1,11 @@
-import "../data/words.js";
+import words from "../data/words.js";
 
 let answer = ""; // 정답 저장 변수
 let randomWord = ""; // 랜덤 단어 저장 변수
 let score = 0; // 점수 저장 변수
 
 const scoreDisplay = document.querySelector("#score");
-const wordDisplay = document.querySelector("#word");
+const wordDisplay = document.querySelector("#word > span");
 const input = document.querySelector("#input");
 const check = document.querySelector("#check");
 const startGameBtn = document.querySelector("#startGame");
@@ -20,7 +20,7 @@ const startGame = () => {
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
     score = 0;
     scoreDisplay.textContent = score;
-    wordDisplay.textContent = randomWord;
+    wordDisplay.textContent = randomWord; // 랜덤 단어 표시
     input.value = ""; // 입력 필드 초기화
 };
 
@@ -53,7 +53,8 @@ const wordCheck = () => {
     input.value = ""; // 입력 필드 초기화
     randomWord = getRandomWord(); // 새로운 단어 선택
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
-    wordDisplay.textContent = randomWord;
+     wordDisplay.textContent = randomWord; // 랜덤 단어 표시
+    
 };
 
 startGameBtn.addEventListener("click", startGame);
@@ -65,3 +66,4 @@ startGameBtn.style.display = "block"; // 게임 시작 버튼 보이기
 input.style.display = "none"; // 입력 필드 숨기기
 check.style.display = "none"; // 확인 버튼 숨기기
 finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
+
