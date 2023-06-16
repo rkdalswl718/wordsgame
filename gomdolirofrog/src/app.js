@@ -33,6 +33,12 @@ const getRandomWord = () => {
     // return 으로 배열에서 무작위로 단어를 선택하여 반환 (매번 다른 단어 호출)
 };
 
+// 영어만 입력되게 하기 
+function handleOnInput() {
+    input.value = input.value.replace(/[^A-Za-z]/ig, "");
+}
+
+
 //게임 끝내기 버튼을 눌렀을 때
 function finishGame() {
     score = 0;
@@ -66,6 +72,7 @@ const wordCheck = () => {
 startGameBtn.addEventListener("click", startGame);
 finishGameBtn.addEventListener("click", finishGame);
 check.addEventListener("click", wordCheck);
+input.addEventListener("input", handleOnInput);
 
 // 초기 상태 설정
 startGameBtn.style.display = "block"; // 게임 시작 버튼 보이기
