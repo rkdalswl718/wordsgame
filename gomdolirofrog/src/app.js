@@ -26,6 +26,7 @@ const startGame = () => {
     scoreDisplay.textContent = score;
     wordDisplay.textContent = randomWord; // 랜덤 단어 표시
     input.value = ""; // 입력 필드 초기화
+    input.focus(); //처음부터 입력할 수 있게
 };
 
 const getRandomWord = () => {
