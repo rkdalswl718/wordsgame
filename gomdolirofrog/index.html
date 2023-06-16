@@ -11,15 +11,14 @@
     <div class="all">
     <h1>단어 게임</h1>
     <div class="header">
+        <!-- 무작위 단어 -->
+        <span>단어 : <span id="word"></span></span>
         <!-- 점수판 -->
         <p id="scoreDisplay">점수: <span id="score">0</span></p>
         
-        <!-- 무작위 단어 -->
-        <span>단어 : <span id="word"></span></span>
     </div>
-    <form><!-- 입력 필드 -->
-
-        
+    <form>
+        <!-- 입력 필드 -->
         <input type="text" id="input">
         <!-- 입력 버튼 -->
         <button id="check"> 확인 </button>
@@ -29,7 +28,7 @@
     </form>
     </div>
     
-    <script src="src/app.js">
+    <script type="module" src="./src/app.js"></script>
 
     </script>
 </body>

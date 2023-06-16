@@ -12,7 +12,9 @@
 
 // TODO-6: 사용자가 "끝내기" 버튼을 클릭하면 점수를 초기화하고 "게임이 정상적으로 종료되었습니다"라는 메시지를 표시합니다.
 
-import {words} from '../data/words'; //단어파일 불러오기
+import words from '../data/words.js';
+console.log(words);
+
 let answer = ""; //정답 저장할 변수
 
 const scoreDisplay = document.querySelector("#score");
@@ -29,18 +31,23 @@ check.addEventListener("click",wordCheck);
 
 const wordCheck = () => {
     const userInput = check.value.toLowerCase();
-    const random = words[Math.floor(Math.random() * words.length )]; //무작위 단어
+    const random = wordsJs.words[Math.floor(Math.random() * wordsJs.words.length )]; //무작위 단어
     userInput = answer[random];
-    if (userInput == answer) {
-        score+=5; // 단어가 일치하면 점수 증가
+    if (userInput === answer) {
+        score+=5; // 단어가 일치하면 +5점
         scoreDisplay.textContent = score;//
-    else
-        score-=3;
+    }
+    else {
+        score-=3; // 단어가 일치하지 않으면 -3점
+        scoreDisplay.textContent = score;//
+    }
 }
 
+wordCheck();
 
 
-const startGame = () => { 
+
+function startGame() {
     let score = 0; //처음 점수
 
 }
