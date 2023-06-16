@@ -17,7 +17,7 @@
         <p id="scoreDisplay">점수: <span id="score">0</span></p>
         
     </div>
-    <form>
+    <form onsubmit="event.preventDefault()">  <!-- 기본 제츌 막기 -->
         <!-- 입력 필드 -->
         <input type="text" id="input" placeholder="정답을 입력하세요.">
         <!-- 입력 버튼 -->

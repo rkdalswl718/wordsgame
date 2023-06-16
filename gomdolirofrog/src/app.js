@@ -12,25 +12,32 @@ const startGameBtn = document.querySelector("#startGame");
 const finishGameBtn = document.querySelector("#finishGame");
 
 const startGame = () => {
-    randomWord = words[Math.floor(Math.random() * words.length)]; // 무작위 단어 선택
+    startGameBtn.style.display = "none"; // 게임 시작 버튼 숨기기
+    finishGameBtn.style.display = "block"; // 끝내기 버튼 보이기
+    input.style.display = "block"; // 입력 필드 보이기
+    check.style.display = "block"; // 확인 버튼 보이기
+    randomWord = getRandomWord(); // 랜덤 단어 불러오기
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
     score = 0;
     scoreDisplay.textContent = score;
     wordDisplay.textContent = randomWord;
     input.value = ""; // 입력 필드 초기화
-    startGameBtn.style.display = "none"; // 게임 시작 버튼 숨기기
-    input.style.display = "block"; // 입력 필드 보이기
-    check.style.display = "block"; // 확인 버튼 보이기
 };
 
-const finishGame = () => {
+const getRandomWord = () => {
+    return words[Math.floor(Math.random() * words.length)]; // 무작위 단어 선택
+};
+
+function finishGame() {
     score = 0;
     scoreDisplay.textContent = score;
     alert("게임이 정상적으로 종료되었습니다.");
     startGameBtn.style.display = "block"; // 게임 시작 버튼 보이기
+    finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
     input.style.display = "none"; // 입력 필드 숨기기
     check.style.display = "none"; // 확인 버튼 숨기기
-};
+}
+
 
 const wordCheck = () => {
     const userInput = input.value.toLowerCase(); // 입력값 소문자 변환
@@ -44,6 +51,9 @@ const wordCheck = () => {
         scoreDisplay.textContent = score;
     }
     input.value = ""; // 입력 필드 초기화
+    randomWord = getRandomWord(); // 새로운 단어 선택
+    answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
+    wordDisplay.textContent = randomWord;
 };
 
 startGameBtn.addEventListener("click", startGame);
@@ -54,3 +64,4 @@ check.addEventListener("click", wordCheck);
 startGameBtn.style.display = "block"; // 게임 시작 버튼 보이기
 input.style.display = "none"; // 입력 필드 숨기기
 check.style.display = "none"; // 확인 버튼 숨기기
+finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
