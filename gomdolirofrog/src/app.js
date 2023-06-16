@@ -4,9 +4,9 @@ let answer = ""; // 정답 저장 변수
 let randomWord = ""; // 랜덤 단어 저장 변수
 let score = 0; // 점수 저장 변수
 
-const scoreDisplay = document.querySelector("#score");
+const scoreDisplay = document.querySelector("#score > span");
 const wordDisplay = document.querySelector("#word > span");
-const scr = document.querySelector("#scoreDisplay");
+const scr = document.querySelector("#score");
 const wrd = document.querySelector("#word");
 const input = document.querySelector("#input");
 const check = document.querySelector("#check");
@@ -18,8 +18,8 @@ const startGame = () => {
     finishGameBtn.style.display = "block"; // 끝내기 버튼 보이기
     input.style.display = "block"; // 입력 필드 보이기
     check.style.display = "block"; // 확인 버튼 보이기
-    wrd.style = "block"; //단어 보이기
-    src.style = "block"; //점수 보이기
+    wrd.style.display = "block"; //단어 보이기
+    scr.style.display = "block"; //점수 보이기
     randomWord = getRandomWord(); // 랜덤 단어 불러오기
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
     score = 0;
@@ -42,10 +42,9 @@ function finishGame() {
     finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
     input.style.display = "none"; // 입력 필드 숨기기
     check.style.display = "none"; // 확인 버튼 숨기기
-    wrd.style = "none"; //단어 보이기
-    src.style = "none"; //점수 보이기
+    wrd.style.display = "none"; //단어 숨기기
+    scr.style.display = "none"; //점수 숨기기
 }
-
 
 const wordCheck = () => {
     const userInput = input.value.toLowerCase(); // 입력값 소문자 변환
@@ -61,8 +60,7 @@ const wordCheck = () => {
     input.value = ""; // 입력 필드 초기화
     randomWord = getRandomWord(); // 새로운 단어 선택
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
-     wordDisplay.textContent = randomWord; // 랜덤 단어 표시
-    
+    wordDisplay.textContent = randomWord; // 랜덤 단어 표시
 };
 
 startGameBtn.addEventListener("click", startGame);
@@ -74,6 +72,5 @@ startGameBtn.style.display = "block"; // 게임 시작 버튼 보이기
 input.style.display = "none"; // 입력 필드 숨기기
 check.style.display = "none"; // 확인 버튼 숨기기
 finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
-wordDisplay.style = "none"; //단어 숨기기
-scoreDisplay.style = "none"; //점수 숨기기
-
+wrd.style.display = "none"; //단어 숨기기
+scr.style.display = "none"; //점수 숨기기
