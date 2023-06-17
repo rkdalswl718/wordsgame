@@ -8,7 +8,7 @@
     <title>단어 게임</title>
 </head>
 <body>
-    <div class="all">
+    
     <h1>단어 게임</h1>
     <div class="header">
         <!-- 무작위 단어 -->
@@ -19,16 +19,21 @@
         
     </div>
     <form onsubmit="event.preventDefault()">  <!-- 기본 제츌 막기 -->
+    <div class="input-container">
         <!-- 입력 필드 -->
         <input type="text" id="input" placeholder="정답을 입력하세요." autocomplete="off">
         <!-- placeholder 기본값. autocomplete="off" 자동완성 없애기 -->
         <!-- 입력 버튼 -->
         <button id="check"> 확인 </button>
+    </div>
+    <div class="but-contauner">
         <!-- 게임 시작하기, 끝내기 버튼 -->
         <button id="startGame">게임시작</button>
         <button id="finishGame">끝내기</button>
-    </form>
     </div>
+    </form>
+    
+    
     
     <script type="module" src="./src/app.js"></script>
 
