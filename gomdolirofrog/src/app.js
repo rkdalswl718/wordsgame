@@ -53,10 +53,12 @@ const finishGame = () => {
     scr.style.display = "none"; //점수 숨기기
 }
 
+//확인버튼을 눌렀을 때
 const wordCheck = () => {
     const userInput = input.value.toLowerCase(); // 입력값 소문자 변환
     if (userInput === "") {
         alert("정답을 입력하세요.");
+        return;
     } else if (userInput === answer) {
         score += 5; // 단어가 일치하면 +5점
         scoreDisplay.textContent = score;
@@ -70,11 +72,7 @@ const wordCheck = () => {
     wordDisplay.textContent = randomWord; // 랜덤 단어 표시
 };
 
-const wordCorrect = () => {
-    
-}
 
-const 
 
 startGameBtn.addEventListener("click", startGame);
 finishGameBtn.addEventListener("click", finishGame);
