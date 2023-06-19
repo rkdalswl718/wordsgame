@@ -35,13 +35,13 @@ const getRandomWord = () => {
 };
 
 // 영어만 입력되게 하기 
-function handleOnInput() {
+const handleOnInput = () => {
     input.value = input.value.replace(/[^A-Za-z]/ig, "");
 }
 
 
 //게임 끝내기 버튼을 눌렀을 때
-function finishGame() {
+const finishGame = () => {
     score = 0;
     scoreDisplay.textContent = score;
     alert("게임이 정상적으로 종료되었습니다.");
@@ -69,6 +69,12 @@ const wordCheck = () => {
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
     wordDisplay.textContent = randomWord; // 랜덤 단어 표시
 };
+
+const wordCorrect = () => {
+    
+}
+
+const 
 
 startGameBtn.addEventListener("click", startGame);
 finishGameBtn.addEventListener("click", finishGame);

@@ -14,9 +14,29 @@ body {
     min-height: 100vh;
 }
 
+h1 {
+    color: rgb(70, 65, 57);
+}
+
 .header {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.bearbear {
+    display: flex;
+}
+
+.bear1 {
+    margin-right: 8px;
+    width: 45px;
+    height: 45px;
+}
+
+.bear2 {
+    margin-left: 8px;
+    width: 45px;
+    height: 45px;
 }
 
 .input-container {
