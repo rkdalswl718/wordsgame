@@ -30,7 +30,8 @@ const startGame = () => {
 };
 
 const getRandomWord = () => {
-    return words[Math.floor(Math.random() * words.length)]; // 무작위 단어 선택. 배열에서 단어 가져옴, floor로 반올림한 값의 배열 출력
+    return words[Math.floor(Math.random() * words.length)]; 
+    // 무작위 단어 선택. 배열에서 단어 가져옴, floor로 반올림한 값의 배열 출력
     // return 으로 배열에서 무작위로 단어를 선택하여 반환 (매번 다른 단어 호출)
 };
 
@@ -38,7 +39,6 @@ const getRandomWord = () => {
 const handleOnInput = () => {
     input.value = input.value.replace(/[^A-Za-z]/ig, "");
 }
-
 
 //게임 끝내기 버튼을 눌렀을 때
 const finishGame = () => {
@@ -58,7 +58,7 @@ const wordCheck = () => {
     const userInput = input.value.toLowerCase(); // 입력값 소문자 변환
     if (userInput === "") {
         alert("정답을 입력하세요.");
-        return;
+        return; //alert 실행 후 단어 변동 x
     } else if (userInput === answer) {
         score += 5; // 단어가 일치하면 +5점
         scoreDisplay.textContent = score;
@@ -71,7 +71,6 @@ const wordCheck = () => {
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
     wordDisplay.textContent = randomWord; // 랜덤 단어 표시
 };
-
 
 
 startGameBtn.addEventListener("click", startGame);

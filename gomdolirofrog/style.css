@@ -1,4 +1,12 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
+    font-family: 'DungGeunMo';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,15 +20,17 @@ body {
     height: 100%;
     background-color: #fff8e1;
     min-height: 100vh;
-}
+}   
 
 h1 {
     color: rgb(70, 65, 57);
+    margin-top: 7px;
 }
 
 .header {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 17px;
 }
 
 .bearbear {
@@ -28,15 +38,23 @@ h1 {
 }
 
 .bear1 {
-    margin-right: 8px;
-    width: 45px;
-    height: 45px;
+    margin-right: 10px;
+    width: 43px;
+    height: 43px;
 }
 
 .bear2 {
-    margin-left: 8px;
-    width: 45px;
-    height: 45px;
+    margin-left: 10px;
+    width: 43px;
+    height: 43px;
+}
+
+#word {
+    margin-top: 3px;
+}
+
+#score {
+    margin-top: 3px;
 }
 
 .input-container {
@@ -61,7 +79,7 @@ h1 {
     border-radius: 4px;
     border: none;
     background-color: #4caf50;
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
     outline: none;
 }
@@ -76,21 +94,21 @@ h1 {
     margin-right: 10px;
     padding: 10px 20px;
     font-size: 16px;
+    cursor: pointer;
     border-radius: 4px;
     border: none;
     background-color: #337ab7;
-    color: #fff;
-    cursor: pointer;
+    color: #ffffff;
     outline: none;
 }
 
 #finishGame {
     margin-right: 10px;
     padding: 10px 20px;
-    font-size: 16px;
     border-radius: 4px;
     border: none;
-    color: #fff;
+    font-size: 16px;
+    color: #ffffff;
     cursor: pointer;
     outline: none;
     background-color: #d9534f;
