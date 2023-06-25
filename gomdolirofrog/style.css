@@ -1,12 +1,12 @@
 @font-face {
-    font-family: 'DungGeunMo';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-family: 'ChosunGu';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
-    font-family: 'DungGeunMo';
+    font-family:  'ChosunGu';
     margin: 0;
     padding: 0;
     box-sizing: border-box;

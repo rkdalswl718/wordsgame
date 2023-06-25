@@ -3,12 +3,11 @@ import words from "../data/words.js";
 let answer = ""; // 정답 저장 변수
 let randomWord = ""; // 랜덤 단어 저장 변수
 let score = 0; // 점수 저장 변수
-let highScore = 0; //최고점 저장 변수
-let myScore = 0; //마지막 점수 저장 변수
+let highScore = localStorage.getItem("highScore") || 0; //로컬스토리지 이용 최고점 갱신하기 위한 변수
 
 const scoreDisplay = document.querySelector("#score > span");
 const wordDisplay = document.querySelector("#word > span");
-const highDispaly = document.querySelector("#highScore > span");
+const highDisplay = document.querySelector("#highScore > span"); // 수정된 부분
 const scr = document.querySelector("#score");
 const wrd = document.querySelector("#word");
 const hscr = document.querySelector("#highScore");
@@ -24,6 +23,7 @@ const startGame = () => {
     check.style.display = "block"; // 확인 버튼 보이기
     wrd.style.display = "block"; //단어 보이기
     scr.style.display = "block"; //점수 보이기
+    hscr.style.display = "none"; //최고점 숨기기
     randomWord = getRandomWord(); // 랜덤 단어 불러오기
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
     score = 0;
@@ -34,7 +34,7 @@ const startGame = () => {
 };
 
 const getRandomWord = () => {
-    return words[Math.floor(Math.random() * words.length)]; 
+    return words[Math.floor(Math.random() * words.length)];
     // 무작위 단어 선택. 배열에서 단어 가져옴, floor로 반올림한 값의 배열 출력
     // return 으로 배열에서 무작위로 단어를 선택하여 반환 (매번 다른 단어 호출)
 };
@@ -46,7 +46,6 @@ const handleOnInput = () => {
 
 //게임 끝내기 버튼을 눌렀을 때
 const finishGame = () => {
-    myScore = score;
     recordHighScore(); //게임을 끝냈을 때 최고점수 갱신
     score = 0;
     scoreDisplay.textContent = score;
@@ -57,6 +56,7 @@ const finishGame = () => {
     check.style.display = "none"; // 확인 버튼 숨기기
     wrd.style.display = "none"; //단어 숨기기
     scr.style.display = "none"; //점수 숨기기
+    hscr.style.display = "block"; //최고점 보이기
 }
 
 //확인버튼을 눌렀을 때
@@ -80,12 +80,12 @@ const wordCheck = () => {
 
 //최고점수 기록하기
 const recordHighScore = () => {
-    if (highScore <= myScore){
-        highScore = myScore ;
-        highDispaly.textContent = score;
+    if (score > highScore) {
+        highScore = score;
+        highDisplay.textContent = highScore;
+        localStorage.setItem("highScore", highScore); // 최고 점수 로컬 스토리지에 저장하기
     }
 }
-
 
 startGameBtn.addEventListener("click", startGame);
 finishGameBtn.addEventListener("click", finishGame);
@@ -99,3 +99,4 @@ check.style.display = "none"; // 확인 버튼 숨기기
 finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
 wrd.style.display = "none"; //단어 숨기기
 scr.style.display = "none"; //점수 숨기기
+highDisplay.textContent = highScore; // 최고점 보이기
