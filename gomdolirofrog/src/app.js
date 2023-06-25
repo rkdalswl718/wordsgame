@@ -4,6 +4,7 @@ let answer = ""; // 정답 저장 변수
 let randomWord = ""; // 랜덤 단어 저장 변수
 let score = 0; // 점수 저장 변수
 let highScore = localStorage.getItem("highScore") || 0; //로컬스토리지 이용 최고점 갱신하기 위한 변수
+let myScore = 0;
 
 const scoreDisplay = document.querySelector("#score > span");
 const wordDisplay = document.querySelector("#word > span");
@@ -46,10 +47,11 @@ const handleOnInput = () => {
 
 //게임 끝내기 버튼을 눌렀을 때
 const finishGame = () => {
+    myScore = score ;
     recordHighScore(); //게임을 끝냈을 때 최고점수 갱신
     score = 0;
     scoreDisplay.textContent = score;
-    alert("게임이 정상적으로 종료되었습니다.");
+    alert(`게임이 정상적으로 종료되었습니다. 점수는 ${myScore}점 입니다.`);
     startGameBtn.style.display = "block"; // 게임 시작 버튼 보이기
     finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
     input.style.display = "none"; // 입력 필드 숨기기
@@ -99,4 +101,4 @@ check.style.display = "none"; // 확인 버튼 숨기기
 finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
 wrd.style.display = "none"; //단어 숨기기
 scr.style.display = "none"; //점수 숨기기
-highDisplay.textContent = highScore; // 최고점 보이기
+highDisplay.textContent = highScore; // 로컬스토리지에 저장된 최고점 보이기
