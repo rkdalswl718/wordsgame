@@ -3,11 +3,15 @@ import words from "../data/words.js";
 let answer = ""; // 정답 저장 변수
 let randomWord = ""; // 랜덤 단어 저장 변수
 let score = 0; // 점수 저장 변수
+let highScore = 0; //최고점 저장 변수
+let myScore = 0; //마지막 점수 저장 변수
 
 const scoreDisplay = document.querySelector("#score > span");
 const wordDisplay = document.querySelector("#word > span");
+const highDispaly = document.querySelector("#highScore > span");
 const scr = document.querySelector("#score");
 const wrd = document.querySelector("#word");
+const hscr = document.querySelector("#highScore");
 const input = document.querySelector("#input");
 const check = document.querySelector("#check");
 const startGameBtn = document.querySelector("#startGame");
@@ -42,6 +46,8 @@ const handleOnInput = () => {
 
 //게임 끝내기 버튼을 눌렀을 때
 const finishGame = () => {
+    myScore = score;
+    recordHighScore(); //게임을 끝냈을 때 최고점수 갱신
     score = 0;
     scoreDisplay.textContent = score;
     alert("게임이 정상적으로 종료되었습니다.");
@@ -71,6 +77,14 @@ const wordCheck = () => {
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
     wordDisplay.textContent = randomWord; // 랜덤 단어 표시
 };
+
+//최고점수 기록하기
+const recordHighScore = () => {
+    if (highScore <= myScore){
+        highScore = myScore ;
+        highDispaly.textContent = score;
+    }
+}
 
 
 startGameBtn.addEventListener("click", startGame);
