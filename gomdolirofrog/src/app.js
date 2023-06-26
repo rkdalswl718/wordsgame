@@ -42,7 +42,7 @@ const getRandomWord = () => {
 
 // 영어만 입력되게 하기 
 const handleOnInput = () => {
-    input.value = input.value.replace(/[^A-Za-z]/ig, "");
+    input.value = input.value.replace(/[^A-Za-z]/ig, " ");
 }
 
 //게임 끝내기 버튼을 눌렀을 때
