@@ -68,14 +68,9 @@ h1 {
     height: 26px;
     margin-top: 6px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
-
-
-#resetIng {
-    width: 26px;
-    height: 26px;
-}
 
 #word {
     margin-top: 10px;

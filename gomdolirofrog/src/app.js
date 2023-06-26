@@ -100,7 +100,6 @@ const reset = () => {
     localStorage.clear(); // 로컬스토리지 초기화 시키기
     highScore = 0; // 최고점수 초기화
     highDisplay.textContent = highScore;
-    resetBtn.style.backgroundImage = `url(${resetImage2})`; // 리셋버튼 이미지 변경
 }
 
 
