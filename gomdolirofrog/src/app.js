@@ -17,7 +17,8 @@ const check = document.querySelector("#check");
 const startGameBtn = document.querySelector("#startGame");
 const finishGameBtn = document.querySelector("#finishGame");
 const resetBtn = document.querySelector("#reset");
-const resetImage = document.querySelector("#resetIng");
+const resetImage = "../gomdolirofrog/src/image/image-removebg-preview.png";
+const resetImage2= "../gomdolirofrog/src/image/회색 리플.png";
 
 //시작버튼을 눌렀을 때
 const startGame = () => {
@@ -51,7 +52,7 @@ const handleOnInput = () => {
 
 //게임 끝내기 버튼을 눌렀을 때
 const finishGame = () => {
-    myScore = score ;
+    myScore = score;
     recordHighScore(); //게임을 끝냈을 때 최고점수 갱신
     score = 0;
     scoreDisplay.textContent = score;
@@ -96,21 +97,19 @@ const recordHighScore = () => {
 
 //최고점수 기록 리셋버튼을 눌렀을 때
 const reset = () => {
-    localStorage.clear() //로컬스토리지 초기화 시키기
+    localStorage.clear(); // 로컬스토리지 초기화 시키기
+    highScore = 0; // 최고점수 초기화
     highDisplay.textContent = highScore;
+    resetBtn.style.backgroundImage = `url(${resetImage2})`; // 리셋버튼 이미지 변경
 }
 
-//리셋버튼을 눌렀을때 색 변하게 하기
-resetBtn.addEventListener("mouseup", () => {
-    resetImage.src = "/gomdolirofrog/src/image/회색 리플.png";
-});
+
 
 startGameBtn.addEventListener("click", startGame);
 finishGameBtn.addEventListener("click", finishGame);
 check.addEventListener("click", wordCheck);
 input.addEventListener("input", handleOnInput);
-resetBtn.addEventListener("click",reset);
-
+resetBtn.addEventListener("click", reset);
 
 // 초기 상태 설정
 startGameBtn.style.display = "block"; // 게임 시작 버튼 보이기
