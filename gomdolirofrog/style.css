@@ -54,9 +54,27 @@ h1 {
     color: rgb(48, 42, 42);
 }
 
+.bestScore{
+    display: flex;
+}
+
+
 #highScore {
     margin-top: 10px;
 }
+
+#reset {
+    width: 26px;
+    height: 26px;
+    margin-top: 6px;
+    margin-left: 8px;
+}
+
+#resetIng {
+    width: 26px;
+    height: 26px;
+}
+
 #word {
     margin-top: 10px;
 }

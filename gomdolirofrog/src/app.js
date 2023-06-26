@@ -16,7 +16,10 @@ const input = document.querySelector("#input");
 const check = document.querySelector("#check");
 const startGameBtn = document.querySelector("#startGame");
 const finishGameBtn = document.querySelector("#finishGame");
+const resetBtn = document.querySelector("#reset");
+const resetImage = document.querySelector("#resetIng");
 
+//시작버튼을 눌렀을 때
 const startGame = () => {
     startGameBtn.style.display = "none"; // 게임 시작 버튼 숨기기
     finishGameBtn.style.display = "block"; // 끝내기 버튼 보이기
@@ -25,6 +28,7 @@ const startGame = () => {
     wrd.style.display = "block"; //단어 보이기
     scr.style.display = "block"; //점수 보이기
     hscr.style.display = "none"; //최고점 숨기기
+    resetBtn.style.display = "none"; //리셋버튼 숨기기
     randomWord = getRandomWord(); // 랜덤 단어 불러오기
     answer = randomWord.toLowerCase(); // 소문자 형태의 정답 저장
     score = 0;
@@ -59,6 +63,7 @@ const finishGame = () => {
     wrd.style.display = "none"; //단어 숨기기
     scr.style.display = "none"; //점수 숨기기
     hscr.style.display = "block"; //최고점 보이기
+    resetBtn.style.display = "block"; //리셋버튼 보이기
 }
 
 //확인버튼을 눌렀을 때
@@ -89,10 +94,23 @@ const recordHighScore = () => {
     }
 }
 
+//최고점수 기록 리셋버튼을 눌렀을 때
+const reset = () => {
+    localStorage.clear() //로컬스토리지 초기화 시키기
+    highDisplay.textContent = highScore;
+}
+
+//리셋버튼을 눌렀을때 색 변하게 하기
+resetBtn.addEventListener("mouseup", () => {
+    resetImage.src = "/gomdolirofrog/src/image/회색 리플.png";
+});
+
 startGameBtn.addEventListener("click", startGame);
 finishGameBtn.addEventListener("click", finishGame);
 check.addEventListener("click", wordCheck);
 input.addEventListener("input", handleOnInput);
+resetBtn.addEventListener("click",reset);
+
 
 // 초기 상태 설정
 startGameBtn.style.display = "block"; // 게임 시작 버튼 보이기
@@ -101,4 +119,4 @@ check.style.display = "none"; // 확인 버튼 숨기기
 finishGameBtn.style.display = "none"; // 끝내기 버튼 숨기기
 wrd.style.display = "none"; //단어 숨기기
 scr.style.display = "none"; //점수 숨기기
-highDisplay.textContent = highScore; // 로컬스토리지에 저장된 최고점 보이기
+highDisplay.textContent = highScore; // 로컬스토리지에 저장된 최고점 보이기'
