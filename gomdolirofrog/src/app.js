@@ -17,8 +17,6 @@ const check = document.querySelector("#check");
 const startGameBtn = document.querySelector("#startGame");
 const finishGameBtn = document.querySelector("#finishGame");
 const resetBtn = document.querySelector("#reset");
-const resetImage = "../gomdolirofrog/src/image/image-removebg-preview.png";
-const resetImage2= "../gomdolirofrog/src/image/회색 리플.png";
 
 //시작버튼을 눌렀을 때
 const startGame = () => {
@@ -47,8 +45,13 @@ const getRandomWord = () => {
 
 // 영어만 입력되게 하기 
 const handleOnInput = () => {
-    input.value = input.value.replace(/[^A-Za-z]/ig, " ");
+    const userInput = input.value;
+    const filteredInput = userInput.replace(/[^A-Za-z ]/g, "");
+    input.value = filteredInput;
 }
+
+
+
 
 //게임 끝내기 버튼을 눌렀을 때
 const finishGame = () => {
