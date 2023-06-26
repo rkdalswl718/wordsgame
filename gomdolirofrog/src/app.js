@@ -51,8 +51,6 @@ const handleOnInput = () => {
 }
 
 
-
-
 //게임 끝내기 버튼을 눌렀을 때
 const finishGame = () => {
     myScore = score;
@@ -104,8 +102,6 @@ const reset = () => {
     highScore = 0; // 최고점수 초기화
     highDisplay.textContent = highScore;
 }
-
-
 
 startGameBtn.addEventListener("click", startGame);
 finishGameBtn.addEventListener("click", finishGame);
