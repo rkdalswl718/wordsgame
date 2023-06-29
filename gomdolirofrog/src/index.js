@@ -87,7 +87,6 @@ const wordCheck = () => {
     wordDisplay.textContent = randomWord; // 랜덤 단어 표시
 };
 
-
 //최고점수 기록하기
 const recordHighScore = () => {
     if (score > highScore) {
